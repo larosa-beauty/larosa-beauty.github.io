@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Larosa Beauté – Thẩm Mỹ Tinh Tế</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --rose:      #C9818A;
+  --rose-soft: #E8B4BB;
+  --rose-pale: #F5D8DC;
+  --nude:      #EDE0D8;
+  --nude-dark: #D6C4BA;
+  --cream:     #FAF7F4;
+  --white:     #FFFFFF;
+  --brown:     #6B4C47;
+  --text:      #3D2B28;
+  --muted:     #A08880;
+  --border:    rgba(201,129,138,0.18);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── DECORATIVE PETAL PATTERN ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(201,129,138,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(232,180,187,0.08) 0%, transparent 35%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 64px;
+  background: rgba(250,247,244,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s, padding 0.4s;
+}
+nav.scrolled {
+  border-bottom-color: var(--border);
+  padding: 16px 64px;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--brown);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+}
+.nav-logo span { color: var(--rose); font-style: italic; }
+
+.nav-links { display: flex; gap: 40px; list-style: none; align-items: center; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.73rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--rose); }
+
+.nav-cta {
+  background: var(--rose) !important;
+  color: #fff !important;
+  padding: 11px 28px;
+  border-radius: 0;
+  letter-spacing: 0.18em !important;
+  transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--brown) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 64px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.67rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 36px;
+  animation: fadeUp 1s ease both;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--rose);
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 5vw, 5.2rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 30px;
+  animation: fadeUp 1s 0.15s ease both;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--rose);
+  display: block;
+}
+
+.hero-desc {
+  font-size: 0.9rem;
+  line-height: 1.95;
+  color: var(--muted);
+  max-width: 400px;
+  margin-bottom: 50px;
+  letter-spacing: 0.02em;
+  animation: fadeUp 1s 0.3s ease both;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  animation: fadeUp 1s 0.45s ease both;
+}
+
+.btn-rose {
+  background: var(--rose);
+  color: #fff;
+  padding: 16px 42px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+}
+.btn-rose:hover { background: var(--brown); transform: translateY(-2px); }
+
+.btn-line {
+  color: var(--brown);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--nude-dark);
+  padding-bottom: 4px;
+  transition: gap 0.3s, border-color 0.3s;
+}
+.btn-line:hover { gap: 16px; border-color: var(--rose); color: var(--rose); }
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 1s 0.6s ease both;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--rose);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+
+/* HERO RIGHT – visual */
+.hero-right {
+  position: relative;
+  background: var(--nude);
+  overflow: hidden;
+  animation: fadeIn 1.4s ease both;
+}
+
+.hero-visual-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, #f8ede9 0%, #ead5cf 40%, #dfc4bf 100%);
+}
+
+.hero-circles {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(201,129,138,0.2);
+}
+.ring-1 { width: 480px; height: 480px; }
+.ring-2 { width: 340px; height: 340px; border-color: rgba(201,129,138,0.35); }
+.ring-3 { width: 200px; height: 200px; background: rgba(201,129,138,0.08); border: none; }
+
+.hero-center-text {
+  position: absolute;
+  text-align: center;
+  z-index: 2;
+}
+.hero-center-text .big-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 11rem;
+  font-weight: 300;
+  color: rgba(201,129,138,0.18);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.hero-floats {
+  position: absolute;
+  inset: 0;
+}
+.float-tag {
+  position: absolute;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(8px);
+  padding: 14px 22px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--brown);
+  border-left: 2px solid var(--rose);
+  box-shadow: 0 8px 32px rgba(107,76,71,0.08);
+  animation: floatY 4s ease-in-out infinite;
+}
+.float-tag.a { top: 22%; left: 8%; animation-delay: 0s; }
+.float-tag.b { top: 55%; right: 6%; animation-delay: 1.5s; }
+.float-tag.c { bottom: 16%; left: 15%; animation-delay: 0.8s; }
+.float-tag strong { display: block; font-weight: 500; margin-bottom: 2px; color: var(--rose); font-size: 0.85rem; }
+
+/* ── DIVIDER ── */
+.divider {
+  background: var(--rose-pale);
+  padding: 18px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.divider-track {
+  display: flex;
+  gap: 64px;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.divider-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.63rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brown);
+  white-space: nowrap;
+}
+.divider-item::before { content: '✿'; color: var(--rose); font-size: 0.55rem; }
+
+/* ── SECTIONS ── */
+section { position: relative; z-index: 1; }
+
+.sec-pad { padding: 110px 64px; }
+
+.label-rose {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 20px;
+}
+.label-rose::before { content: ''; width: 28px; height: 1px; background: var(--rose); }
+
+h2.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.22;
+  color: var(--text);
+  margin-bottom: 56px;
+}
+h2.title em { font-style: italic; color: var(--rose); }
+
+/* ── ABOUT ── */
+.about { background: var(--white); }
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.about-img-wrap {
+  position: relative;
+  height: 580px;
+}
+.about-main-box {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, var(--nude) 0%, var(--rose-pale) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.about-monogram {
+  font-family: 'Playfair Display', serif;
+  font-size: 18rem;
+  font-weight: 300;
+  color: rgba(201,129,138,0.1);
+  line-height: 1;
+  user-select: none;
+  letter-spacing: -0.05em;
+}
+.about-badge {
+  position: absolute;
+  bottom: -16px; right: -20px;
+  background: var(--rose);
+  color: #fff;
+  padding: 28px 32px;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(201,129,138,0.3);
+}
+.badge-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 1;
+}
+.badge-text { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.9; margin-top: 6px; }
+
+.about-accent-line {
+  position: absolute;
+  top: 24px; left: 24px; right: 24px; bottom: 24px;
+  border: 1px solid rgba(201,129,138,0.25);
+  pointer-events: none;
+}
+
+.about-text-col p {
+  font-size: 0.9rem;
+  line-height: 1.95;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 36px;
+}
+.pill {
+  border: 1px solid var(--rose-soft);
+  color: var(--rose);
+  padding: 8px 20px;
+  font-size: 0.67rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: rgba(201,129,138,0.04);
+}
+
+/* ── SERVICES ── */
+.services { background: var(--cream); }
+.services-inner { max-width: 1180px; margin: 0 auto; }
+.services-header { text-align: center; margin-bottom: 64px; }
+.services-header .label-rose { justify-content: center; }
+.services-header .label-rose::before { display: none; }
+.services-header .label-rose::after { content: ''; width: 28px; height: 1px; background: var(--rose); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.svc-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 52px 48px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s, transform 0.3s;
+  cursor: default;
+}
+.svc-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rose-soft), var(--rose));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.svc-card:hover { box-shadow: 0 24px 64px rgba(201,129,138,0.12); transform: translateY(-4px); }
+.svc-card:hover::after { transform: scaleX(1); }
+
+.svc-icon-wrap {
+  width: 60px; height: 60px;
+  border: 1px solid var(--rose-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+  background: rgba(245,216,220,0.3);
+  transition: background 0.3s;
+}
+.svc-card:hover .svc-icon-wrap { background: rgba(201,129,138,0.1); }
+
+.svc-num {
+  position: absolute;
+  top: 28px; right: 36px;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(201,129,138,0.1);
+  line-height: 1;
+}
+
+.svc-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.svc-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 30px;
+}
+.svc-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.svc-tag {
+  font-size: 0.63rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  background: var(--rose-pale);
+  color: var(--brown);
+}
+
+/* ── DETAIL PANEL ── */
+.detail-panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 0;
+  max-width: 1180px;
+  margin: 0 auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.detail-col {
+  padding: 60px 56px;
+}
+.detail-col:first-child {
+  border-right: 1px solid var(--border);
+  background: linear-gradient(160deg, var(--rose-pale) 0%, var(--nude) 100%);
+}
+.detail-col h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.detail-col h3 em { font-style: italic; color: var(--rose); }
+.detail-col .sub { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 36px; }
+
+.detail-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+.detail-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(201,129,138,0.12);
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.detail-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.li-icon { color: var(--rose); flex-shrink: 0; margin-top: 1px; }
+.li-title { color: var(--text); font-weight: 400; display: block; margin-bottom: 3px; font-size: 0.88rem; }
+
+/* ── PROCESS ── */
+.process { background: var(--nude); }
+.process-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+.process-intro p { font-size: 0.88rem; color: var(--muted); line-height: 1.9; }
+
+.process-steps { display: flex; flex-direction: column; gap: 0; }
+.step {
+  display: flex;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(201,129,138,0.15);
+  position: relative;
+}
+.step:last-child { border-bottom: none; }
+.step-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--rose-soft);
+  line-height: 1;
+  min-width: 48px;
+  margin-top: 2px;
+}
+.step-body {}
+.step-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.step-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.8; }
+
+/* ── TESTIMONIALS ── */
+.testi { background: var(--white); }
+.testi-inner { max-width: 1180px; margin: 0 auto; }
+.testi-header { text-align: center; margin-bottom: 60px; }
+.testi-header .label-rose { justify-content: center; }
+.testi-header .label-rose::before { display: none; }
+.testi-header .label-rose::after { content: ''; width: 28px; height: 1px; background: var(--rose); }
+
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.testi-card {
+  border: 1px solid var(--border);
+  padding: 40px 36px;
+  background: var(--cream);
+  position: relative;
+  transition: box-shadow 0.3s;
+}
+.testi-card:hover { box-shadow: 0 12px 40px rgba(201,129,138,0.1); }
+.testi-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: var(--rose-pale);
+  line-height: 0.6;
+  margin-bottom: 20px;
+}
+.testi-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+.testi-stars { color: var(--rose); font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 20px; }
+.testi-author { display: flex; align-items: center; gap: 14px; }
+.testi-ava {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose-pale), var(--rose-soft));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--brown);
+  flex-shrink: 0;
+}
+.testi-name { font-size: 0.83rem; color: var(--text); }
+.testi-role { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+
+/* ── CTA ── */
+.cta {
+  background: linear-gradient(135deg, var(--rose) 0%, #b56872 60%, var(--brown) 100%);
+  padding: 120px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta::before {
+  content: 'Larosa';
+  font-family: 'Playfair Display', serif;
+  font-size: 22rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.04);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.cta > * { position: relative; }
+.cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.cta h2 em { font-style: italic; opacity: 0.8; }
+.cta p { font-size: 0.88rem; color: rgba(255,255,255,0.75); margin-bottom: 50px; letter-spacing: 0.05em; }
+.cta-box {
+  display: flex;
+  gap: 0;
+  max-width: 460px;
+  margin: 0 auto 24px;
+}
+.cta-box input {
+  flex: 1;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-right: none;
+  color: #fff;
+  padding: 16px 22px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  outline: none;
+  transition: background 0.3s;
+}
+.cta-box input::placeholder { color: rgba(255,255,255,0.5); }
+.cta-box input:focus { background: rgba(255,255,255,0.22); }
+.cta-box button {
+  background: #fff;
+  color: var(--rose);
+  border: none;
+  padding: 16px 30px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  white-space: nowrap;
+}
+.cta-box button:hover { background: var(--nude); }
+.cta-note { font-size: 0.72rem; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; }
+.cta-note span { color: rgba(255,255,255,0.85); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--text);
+  color: rgba(245,216,220,0.6);
+  padding: 72px 64px 40px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr;
+  gap: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(245,216,220,0.12);
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--rose-pale);
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+  display: block;
+}
+.footer-logo span { font-style: italic; color: var(--rose-soft); }
+.footer-about { font-size: 0.82rem; line-height: 1.85; max-width: 280px; }
+
+.footer-col h4 {
+  font-size: 0.63rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--rose-soft);
+  margin-bottom: 24px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+.footer-col a {
+  color: rgba(245,216,220,0.55);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--rose-pale); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+}
+.footer-bottom p { font-size: 0.72rem; opacity: 0.4; letter-spacing: 0.05em; }
+.footer-bottom .rose { color: var(--rose-soft); opacity: 0.8; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 18px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 110px 24px 60px; }
+  .hero-right { height: 320px; }
+  section { padding: 72px 24px; }
+  .sec-pad { padding: 72px 24px; }
+  .about-inner { grid-template-columns: 1fr; gap: 48px; }
+  .about-img-wrap { height: 300px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .detail-panel { grid-template-columns: 1fr; }
+  .detail-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+  .process-inner { grid-template-columns: 1fr; gap: 40px; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .cta { padding: 80px 24px; }
+  footer { padding: 60px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Larosa <span>Beauté</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">Về Chúng Tôi</a></li>
+    <li><a href="#services">Dịch Vụ</a></li>
+    <li><a href="#process">Quy Trình</a></li>
+    <li><a href="#reviews">Cảm Nhận</a></li>
+    <li><a href="#contact" class="nav-cta">Đặt Lịch</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Larosa Beauté · Hà Nội</div>
+    <h1>Vẻ Đẹp<em>Tự Nhiên &</em>Tinh Tế</h1>
+    <p class="hero-desc">Chúng tôi mang đến nghệ thuật phun xăm thẩm mỹ và liệu trình tiêm filler, botox cao cấp — giúp bạn tỏa sáng theo cách riêng mình, tự nhiên và bền vững.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-rose">Đặt Lịch Tư Vấn</a>
+      <a href="#services" class="btn-line">Xem Dịch Vụ</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">8K+</div>
+        <div class="stat-label">Khách hài lòng</div>
+      </div>
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Năm kinh nghiệm</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Sản phẩm chính hãng</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-visual-bg"></div>
+    <div class="hero-circles">
+      <div class="circle-ring ring-1"></div>
+      <div class="circle-ring ring-2"></div>
+      <div class="circle-ring ring-3"></div>
+      <div class="hero-center-text">
+        <div class="big-letter">LB</div>
+      </div>
+    </div>
+    <div class="hero-floats">
+      <div class="float-tag a"><strong>Phun Xăm NT</strong>Chân mày · Môi · Mí</div>
+      <div class="float-tag b"><strong>Filler & Botox</strong>Chính hãng · An toàn</div>
+      <div class="float-tag c"><strong>Bác Sĩ CK</strong>Chứng chỉ quốc tế</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DIVIDER ── -->
+<div class="divider">
+  <div class="divider-track">
+    <span class="divider-item">Phun Xăm Thẩm Mỹ</span>
+    <span class="divider-item">Tiêm Filler Chính Hãng</span>
+    <span class="divider-item">Botox An Toàn</span>
+    <span class="divider-item">Kết Quả Tự Nhiên</span>
+    <span class="divider-item">Bác Sĩ Chuyên Khoa</span>
+    <span class="divider-item">Vô Trùng Tuyệt Đối</span>
+    <span class="divider-item">Phun Xăm Thẩm Mỹ</span>
+    <span class="divider-item">Tiêm Filler Chính Hãng</span>
+    <span class="divider-item">Botox An Toàn</span>
+    <span class="divider-item">Kết Quả Tự Nhiên</span>
+    <span class="divider-item">Bác Sĩ Chuyên Khoa</span>
+    <span class="divider-item">Vô Trùng Tuyệt Đối</span>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="about sec-pad" id="about">
+  <div class="about-inner">
+    <div class="about-img-wrap reveal">
+      <div class="about-main-box">
+        <div class="about-monogram">LR</div>
+        <div class="about-accent-line"></div>
+      </div>
+      <div class="about-badge">
+        <div class="badge-num">10+</div>
+        <div class="badge-text">Năm kinh<br>nghiệm</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="label-rose">Câu Chuyện Của Chúng Tôi</div>
+      <h2 class="title">Larosa Beauté —<br><em>Nghệ Thuật</em> Làm Đẹp</h2>
+      <p style="font-size:0.9rem;color:var(--muted);line-height:1.95;margin-bottom:18px;">
+        Larosa Beauté được thành lập với niềm tin rằng vẻ đẹp thật sự xuất phát từ sự tự tin. Chúng tôi không tạo ra vẻ đẹp mới — chúng tôi tôn vinh vẻ đẹp vốn có của mỗi người.
+      </p>
+      <p style="font-size:0.9rem;color:var(--muted);line-height:1.95;margin-bottom:18px;">
+        Với đội ngũ bác sĩ chuyên khoa được đào tạo trong và ngoài nước, chúng tôi cam kết mang đến trải nghiệm làm đẹp an toàn, tinh tế và bền vững nhất.
+      </p>
+      <div class="about-pills">
+        <span class="pill">✦ Bác sĩ có chứng chỉ</span>
+        <span class="pill">✦ Sản phẩm FDA Mỹ</span>
+        <span class="pill">✦ Phòng vô trùng chuẩn y khoa</span>
+        <span class="pill">✦ Bảo hành dịch vụ</span>
+        <span class="pill">✦ Tư vấn miễn phí</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services sec-pad" id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div class="label-rose">Dịch Vụ</div>
+      <h2 class="title" style="margin-bottom:12px;">Hai Thế Mạnh<br><em>Hàng Đầu</em></h2>
+      <p style="font-size:0.87rem;color:var(--muted);max-width:480px;margin:0 auto;">Chuyên sâu — tinh tế — an toàn. Larosa Beauté tập trung hoàn thiện hai dịch vụ cốt lõi để mang đến chất lượng tốt nhất.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card reveal">
+        <div class="svc-num">01</div>
+        <div class="svc-icon-wrap">🌸</div>
+        <div class="svc-name">Phun Xăm<br>Thẩm Mỹ</div>
+        <div class="svc-desc">Nghệ thuật phun xăm bán vĩnh viễn với kỹ thuật điêu luyện, tạo đường nét tự nhiên, hài hòa với từng khuôn mặt. Màu sắc bền đẹp, không lem, không cứng.</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Chân Mày</span>
+          <span class="svc-tag">Phun Môi</span>
+          <span class="svc-tag">Mí Mắt</span>
+          <span class="svc-tag">Tán Bột</span>
+          <span class="svc-tag">Ombre</span>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-num">02</div>
+        <div class="svc-icon-wrap">💎</div>
+        <div class="svc-name">Tiêm Filler<br>& Botox</div>
+        <div class="svc-desc">Làm trẻ hóa, tạo hình và xóa nhăn bằng các sản phẩm cao cấp có nguồn gốc quốc tế, được Bộ Y tế Việt Nam cấp phép. Hiệu quả tức thì, không cần nghỉ dưỡng.</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Nâng Mũi</span>
+          <span class="svc-tag">Đầy Môi</span>
+          <span class="svc-tag">Má Baby</span>
+          <span class="svc-tag">Xóa Nhăn</span>
+          <span class="svc-tag">Thon Hàm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detail panels -->
+    <div style="margin-top:32px;">
+      <div class="detail-panel reveal">
+        <div class="detail-col">
+          <h3>Phun Xăm<br><em>Nghệ Thuật</em></h3>
+          <p class="sub">Kỹ thuật & Dịch vụ nổi bật</p>
+          <ul class="detail-list">
+            <li>
+              <span class="li-icon">✿</span>
+              <div><span class="li-title">Phun chân mày Ombre / Tán bột</span>Tạo hiệu ứng màu chuyển tự nhiên, hợp với mọi kiểu mặt, giữ màu 2–3 năm.</div>
+            </li>
+            <li>
+              <span class="li-icon">✿</span>
+              <div><span class="li-title">Phun môi collagen</span>Căng mọng, tươi tắn và đều màu — không cần son mỗi ngày.</div>
+            </li>
+            <li>
+              <span class="li-icon">✿</span>
+              <div><span class="li-title">Phun mí mắt eyeliner</span>Đường mí sắc nét, đôi mắt sâu và cuốn hút suốt cả ngày.</div>
+            </li>
+          </ul>
+        </div>
+        <div class="detail-col">
+          <h3>Filler & Botox<br><em>Cao Cấp</em></h3>
+          <p class="sub">Sản phẩm & Ứng dụng</p>
+          <ul class="detail-list">
+            <li>
+              <span class="li-icon">✿</span>
+              <div><span class="li-title">Juvederm / Restylane / Revolax</span>Filler chính hãng, mã code minh bạch, được cấp phép bởi Bộ Y tế.</div>
+            </li>
+            <li>
+              <span class="li-icon">✿</span>
+              <div><span class="li-title">Botox Allergan / Dysport</span>Xóa nhăn hiệu quả sau 5–7 ngày, giữ kết quả 4–6 tháng.</div>
+            </li>
+            <li>
+              <span class="li-icon">✿</span>
+              <div><span class="li-title">Thon gọn hàm / bắp chân</span>Tái định hình khuôn mặt và vóc dáng không cần phẫu thuật.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process sec-pad" id="process">
+  <div class="process-inner">
+    <div class="reveal">
+      <div class="label-rose">Quy Trình</div>
+      <h2 class="title" style="margin-bottom:20px;">Từng Bước<br><em>Cẩn Thận</em></h2>
+      <p style="font-size:0.88rem;color:var(--muted);line-height:1.9;">An toàn là ưu tiên số một. Mọi ca thực hiện đều đi qua quy trình chuẩn y khoa khép kín.</p>
+    </div>
+    <div class="process-steps reveal">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-body">
+          <div class="step-title">Tư Vấn Miễn Phí</div>
+          <div class="step-desc">Bác sĩ lắng nghe mong muốn, đánh giá tình trạng da và tư vấn phương án phù hợp nhất với từng cá nhân.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-body">
+          <div class="step-title">Thăm Khám & Thiết Kế</div>
+          <div class="step-desc">Kiểm tra sức khỏe, phác thảo đường nét hoặc tư vấn liều lượng phù hợp trước khi bắt đầu.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-body">
+          <div class="step-title">Thực Hiện Chuẩn Y Khoa</div>
+          <div class="step-desc">Phòng vô trùng tuyệt đối, thiết bị và sản phẩm có nguồn gốc rõ ràng. Bác sĩ trực tiếp thực hiện.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div class="step-body">
+          <div class="step-title">Chăm Sóc & Bảo Hành</div>
+          <div class="step-desc">Hướng dẫn chăm sóc tại nhà chi tiết. Tái khám miễn phí và hỗ trợ bảo hành trong suốt quá trình.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testi sec-pad" id="reviews">
+  <div class="testi-inner">
+    <div class="testi-header reveal">
+      <div class="label-rose">Cảm Nhận</div>
+      <h2 class="title" style="margin-bottom:12px;">Khách Hàng<em> Nói Gì</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">Phun chân mày Ombre tại Larosa cho kết quả tự nhiên đẹp hơn mình mong đợi. Chị bác sĩ tư vấn rất tận tình và tinh tế!</div>
+        <div class="testi-author">
+          <div class="testi-ava">L</div>
+          <div>
+            <div class="testi-name">Linh Phạm</div>
+            <div class="testi-role">Giáo viên · Hà Nội</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">Tiêm filler môi lần đầu mình rất lo, nhưng bác sĩ giải thích rõ ràng từng bước. Kết quả căng mọng mà hoàn toàn tự nhiên.</div>
+        <div class="testi-author">
+          <div class="testi-ava">T</div>
+          <div>
+            <div class="testi-name">Thu Hương</div>
+            <div class="testi-role">Marketing Manager</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">Botox thon hàm thay đổi hoàn toàn tự tin của mình. Không đau, không sưng, bạn bè cứ khen sao trông trẻ ra thế!</div>
+        <div class="testi-author">
+          <div class="testi-ava">M</div>
+          <div>
+            <div class="testi-name">Minh Châu</div>
+            <div class="testi-role">Doanh nhân</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta" id="contact">
+  <h2>Hành Trình Làm Đẹp<br><em>Bắt Đầu Từ Đây</em></h2>
+  <p>Để lại số điện thoại — chúng tôi sẽ gọi lại tư vấn miễn phí trong vòng 30 phút</p>
+  <div class="cta-box">
+    <input type="tel" placeholder="Nhập số điện thoại của bạn..." id="phoneInput">
+    <button onclick="handleBook()">Đặt Lịch</button>
+  </div>
+  <p class="cta-note">Hoặc gọi trực tiếp · Hotline: <span>0912 345 678</span></p>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-logo">Larosa <span>Beauté</span></span>
+      <p class="footer-about">Trung tâm thẩm mỹ cao cấp tại Hà Nội, chuyên phun xăm nghệ thuật và tiêm filler & botox. Nơi vẻ đẹp tự nhiên của bạn được tôn vinh.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Dịch Vụ</h4>
+      <ul>
+        <li><a href="#">Phun Chân Mày</a></li>
+        <li><a href="#">Phun Môi</a></li>
+        <li><a href="#">Phun Mí Mắt</a></li>
+        <li><a href="#">Tiêm Filler</a></li>
+        <li><a href="#">Tiêm Botox</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Liên Hệ</h4>
+      <ul>
+        <li><a href="#">📍 123 Đường ABC, Hà Nội</a></li>
+        <li><a href="#">📞 0912 345 678</a></li>
+        <li><a href="#">✉️ hello@larosabeaute.vn</a></li>
+        <li><a href="#">🕐 8:00 – 20:00 · Mỗi ngày</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 <span class="rose">Larosa Beauté</span>. Bảo lưu mọi quyền.</p>
+    <p>Được cấp phép bởi Sở Y tế Hà Nội</p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
+
+  // Booking
+  function handleBook() {
+    const input = document.getElementById('phoneInput');
+    if (input.value.trim().length >= 9) {
+      input.value = '';
+      input.placeholder = 'Cảm ơn bạn! Larosa sẽ gọi lại sớm ✿';
+    } else {
+      input.style.border = '1px solid rgba(255,255,255,0.8)';
+      input.focus();
+      setTimeout(() => input.style.border = '', 1500);
+    }
+  }
+  document.getElementById('phoneInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleBook();
+  });
+</script>
+</body>
+</html>
