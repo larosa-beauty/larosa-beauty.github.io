@@ -1017,6 +1017,371 @@
       color: rgba(255, 255, 255, 0.85);
     }
 
+    /* ── CONTACT SECTION ── */
+    .contact-section {
+      background: var(--cream);
+      padding: 120px 64px;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .contact-info .label-rose {
+      margin-bottom: 16px;
+    }
+
+    .contact-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .contact-info h2 em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    .contact-info p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+
+    .contact-detail-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.85rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .contact-detail-item .cdi-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--rose-pale), var(--nude));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-detail-item a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-detail-item a:hover {
+      color: var(--rose);
+    }
+
+    .contact-social-row {
+      display: flex;
+      gap: 14px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .contact-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--white);
+    }
+
+    .contact-social-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201, 129, 138, 0.18);
+    }
+
+    .contact-social-btn img {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── CONTACT FORM ── */
+    .contact-form-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 48px 44px;
+      position: relative;
+      box-shadow: 0 12px 48px rgba(107, 76, 71, 0.07);
+    }
+
+    .contact-form-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--rose), var(--rose-soft), var(--nude-dark));
+    }
+
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .form-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 13px 16px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.3s, background 0.3s;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A08880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--rose);
+      background: #fff;
+    }
+
+    .form-group input.error,
+    .form-group select.error {
+      border-color: #e07070;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--rose), #b56872);
+      color: #fff;
+      border: none;
+      padding: 17px 32px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.3s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-submit-btn:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    .form-submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 48px 0 24px;
+      gap: 12px;
+    }
+
+    .form-success .success-icon {
+      font-size: 2.8rem;
+      margin-bottom: 8px;
+    }
+
+    .form-success h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .form-success p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── ZALO FLOAT ── */
+    .float-widgets {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+      z-index: 9999;
+    }
+
+    .float-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 20px 0 0;
+      height: 52px;
+      border-radius: 52px;
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: #fff;
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.18);
+      transition: transform 0.25s, box-shadow 0.25s;
+      overflow: hidden;
+    }
+
+    .float-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.22);
+    }
+
+    .float-btn .fb-icon {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+    }
+
+    .float-btn.zalo {
+      background: linear-gradient(135deg, #0068ff, #0052d4);
+    }
+
+    .float-btn.zalo .fb-icon {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .float-btn.phone {
+      background: linear-gradient(135deg, var(--rose), #a0666e);
+    }
+
+    .float-btn.phone .fb-icon {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .float-label {
+      white-space: nowrap;
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+
+      70% {
+        transform: scale(1.55);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1.55);
+        opacity: 0;
+      }
+    }
+
+    .float-pulse {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: #0068ff;
+      animation: pulse-ring 2s ease-out infinite;
+      z-index: -1;
+    }
+
+    .float-icon-wrap {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--text);
@@ -1243,6 +1608,23 @@
         padding: 80px 24px;
       }
 
+      .contact-section {
+        padding: 80px 24px;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .contact-form-wrap {
+        padding: 32px 24px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
       footer {
         padding: 60px 24px 32px;
       }
@@ -1256,6 +1638,22 @@
         flex-direction: column;
         gap: 8px;
         text-align: center;
+      }
+
+      .float-btn .float-label {
+        display: none;
+      }
+
+      .float-btn {
+        padding: 0;
+        width: 52px;
+        border-radius: 50%;
+      }
+
+      .float-widgets {
+        bottom: 20px;
+        right: 16px;
+        gap: 12px;
       }
     }
   </style>
@@ -1560,16 +1958,137 @@
     </div>
   </section>
 
-  <!-- ── CTA ── -->
-  <section class="cta" id="contact">
+  <!-- ── CTA BANNER ── -->
+  <section class="cta">
     <h2>Hành Trình Làm Đẹp<br><em>Bắt Đầu Từ Đây</em></h2>
-    <p>Để lại số điện thoại — chúng tôi sẽ gọi lại tư vấn miễn phí trong vòng 30 phút</p>
-    <div class="cta-box">
-      <input type="tel" placeholder="Nhập số điện thoại của bạn..." id="phoneInput">
-      <button onclick="handleBook()">Đặt Lịch</button>
-    </div>
-    <p class="cta-note">Hoặc gọi trực tiếp · Hotline: <span>038 512 9229</span></p>
+    <p>Đặt lịch tư vấn miễn phí — bác sĩ sẽ gọi lại trong vòng 5 - 10 phút</p>
+    <a href="#contact" class="btn-rose"
+      style="display:inline-block;padding:16px 48px;font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:#fff;text-decoration:none;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.5);transition:background 0.3s;">Đặt
+      Lịch Ngay</a>
+    <p class="cta-note" style="margin-top:20px;">Hotline: <span>038 512 9229</span></p>
   </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <!-- Left: Info -->
+      <div class="contact-info reveal">
+        <div class="label-rose">Liên Hệ</div>
+        <h2>Đặt Lịch<br><em>Tư Vấn</em> Miễn Phí</h2>
+        <p>Điền thông tin bên cạnh — đội ngũ bác sĩ sẽ liên hệ tư vấn trong vòng <strong>30 phút</strong>, hoàn toàn
+          miễn phí và không ràng buộc.</p>
+        <div class="contact-detail-list">
+          <div class="contact-detail-item">
+            <div class="cdi-icon">📍</div>
+            <div><a href="https://maps.app.goo.gl/wB81gsKSZX4kVaub7" target="_blank">62 Nguyễn Khang, Yên Hoà,<br>Cầu
+                Giấy, Hà Nội</a></div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="cdi-icon">📞</div>
+            <div><a href="tel:0385129229">038 512 9229</a><br><span style="font-size:0.78rem;color:var(--muted);">Hỗ trợ
+                9:00 – 19:00 · Mỗi ngày</span></div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="cdi-icon">💬</div>
+            <div><span>Phản hồi Zalo trong <strong>5 phút</strong></span><br><span
+                style="font-size:0.78rem;color:var(--muted);">Kết quả tư vấn chuyên sâu, cá nhân hóa</span></div>
+          </div>
+        </div>
+        <div class="contact-social-row">
+          <a href="https://zalo.me/0385129229" target="_blank" class="contact-social-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo"> Zalo
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100063895069981" target="_blank" class="contact-social-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook">
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/larosa.eyebrowsbeaute" target="_blank" class="contact-social-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+            Instagram
+          </a>
+        </div>
+      </div>
+      <!-- Right: Form -->
+      <div class="contact-form-wrap reveal">
+        <div id="contactFormBody">
+          <div class="form-title">Đặt Lịch Tư Vấn</div>
+          <div class="form-sub">Chúng tôi trân trọng mọi thông tin bạn chia sẻ ✿</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Họ và Tên *</label>
+              <input type="text" id="cf-name" placeholder="Nguyễn Thị Lan">
+            </div>
+            <div class="form-group">
+              <label for="cf-phone">Số Điện Thoại *</label>
+              <input type="tel" id="cf-phone" placeholder="038 xxx xxxx">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-service">Dịch Vụ Quan Tâm *</label>
+            <select id="cf-service">
+              <option value="">-- Chọn dịch vụ --</option>
+              <option value="Phun Chân Mày">Phun Chân Mày (Ombre / Tán Bột)</option>
+              <option value="Phun Môi">Phun Môi Collagen</option>
+              <option value="Phun Mí Mắt">Phun Mí Mắt Eyeliner</option>
+              <option value="Tiêm Filler">Tiêm Filler (Môi / Mũi / Má)</option>
+              <option value="Botox">Tiêm Botox (Xóa Nhăn / Thon Hàm)</option>
+              <option value="Tư vấn chung">Tư Vấn Chung / Chưa Quyết Định</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-time">Thời Gian Mong Muốn</label>
+              <select id="cf-time">
+                <option value="">-- Chọn khung giờ --</option>
+                <option value="Sáng (9:00-12:00)">Sáng (9:00 – 12:00)</option>
+                <option value="Trưa (12:00-14:00)">Trưa (12:00 – 14:00)</option>
+                <option value="Chiều (14:00-17:00)">Chiều (14:00 – 17:00)</option>
+                <option value="Tối (17:00-19:00)">Tối (17:00 – 19:00)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cf-channel">Kênh Liên Hệ</label>
+              <select id="cf-channel">
+                <option value="Zalo">Zalo</option>
+                <option value="Điện thoại">Điện Thoại</option>
+                <option value="Facebook">Facebook Messenger</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-note">Ghi Chú (tuỳ chọn)</label>
+            <textarea id="cf-note" placeholder="Ví dụ: Da nhạy cảm, từng làm phun xăm, v.v."></textarea>
+          </div>
+          <button class="form-submit-btn" id="cf-submit" onclick="submitContactForm()">Gửi Đặt Lịch Tư Vấn</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">🌸</div>
+          <h3>Cảm ơn bạn!</h3>
+          <p>Thông tin của bạn đã được ghi nhận.<br>La Rosa Beauté sẽ liên hệ trong vòng <strong>30 phút</strong>.</p>
+          <p style="margin-top:8px;font-size:0.78rem;">Trong lúc chờ, bạn có thể nhắn Zalo để được hỗ trợ ngay.</p>
+          <a href="https://zalo.me/0385129229" target="_blank" class="contact-social-btn"
+            style="margin-top:16px;background:linear-gradient(135deg,#0068ff,#0052d4);color:#fff;border:none;padding:12px 24px;">💬
+            Chat Zalo Ngay</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FLOAT WIDGETS ── -->
+  <div class="float-widgets">
+    <a href="tel:0385129229" class="float-btn phone" title="Gọi ngay">
+      <div class="fb-icon">📞</div>
+      <span class="float-label">038 512 9229</span>
+    </a>
+    <a href="https://zalo.me/0385129229" target="_blank" class="float-btn zalo" title="Chat Zalo">
+      <div class="float-icon-wrap">
+        <div class="float-pulse"></div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo"
+          style="width:26px;height:26px;position:relative;z-index:1;">
+      </div>
+      <span class="float-label">Chat Zalo · Phản hồi ngay</span>
+    </a>
+  </div>
 
   <!-- ── FOOTER ── -->
   <footer>
@@ -1619,13 +2138,20 @@
   </footer>
 
   <script>
-    // Nav scroll
+    // ╔══════════════════════════════════════════════════════╗
+    // ║  TELEGRAM BOT CONFIG — điền thông tin của bạn vào   ║
+    // ║  Xem hướng dẫn: t.me/BotFather → tạo bot mới        ║
+    // ╚══════════════════════════════════════════════════════╝
+    const TELEGRAM_BOT_TOKEN = '8817221623:AAEi160K9HpA_82K5CH6ThL3as0aOUwJqek'; // ← Dán token từ BotFather
+    const TELEGRAM_CHAT_ID = '-5256422925';   // ← ID group/channel admin
+
+    // ── Nav scroll ──
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Scroll reveal
+    // ── Scroll reveal ──
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -1637,21 +2163,57 @@
     }, { threshold: 0.08 });
     reveals.forEach(el => io.observe(el));
 
-    // Booking
-    function handleBook() {
-      const input = document.getElementById('phoneInput');
-      if (input.value.trim().length >= 9) {
-        input.value = '';
-        input.placeholder = 'Cảm ơn bạn! La Rosa sẽ gọi lại sớm ✿';
-      } else {
-        input.style.border = '1px solid rgba(255,255,255,0.8)';
-        input.focus();
-        setTimeout(() => input.style.border = '', 1500);
+    // ── Contact Form Submit ──
+    async function submitContactForm() {
+      const name = document.getElementById('cf-name');
+      const phone = document.getElementById('cf-phone');
+      const service = document.getElementById('cf-service');
+      const time = document.getElementById('cf-time');
+      const channel = document.getElementById('cf-channel');
+      const note = document.getElementById('cf-note');
+      const btn = document.getElementById('cf-submit');
+
+      // Validate
+      let valid = true;
+      [name, phone, service].forEach(el => el.classList.remove('error'));
+
+      if (!name.value.trim()) { name.classList.add('error'); name.focus(); valid = false; }
+      if (!phone.value.trim() || phone.value.trim().length < 9) {
+        phone.classList.add('error'); if (valid) phone.focus(); valid = false;
       }
+      if (!service.value) { service.classList.add('error'); valid = false; }
+      if (!valid) return;
+
+      // Disable button
+      btn.disabled = true;
+      btn.textContent = 'Đang gửi...';
+
+      const now = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+      const msg = `🌸 <b>LEAD MỚI — La Rosa Beauté</b>\n\n` +
+        `👤 <b>Tên:</b> ${name.value.trim()}\n` +
+        `📞 <b>SĐT:</b> <code>${phone.value.trim()}</code>\n` +
+        `💎 <b>Dịch vụ:</b> ${service.value}\n` +
+        `🕐 <b>Giờ mong muốn:</b> ${time.value || 'Chưa chọn'}\n` +
+        `📱 <b>Kênh liên hệ:</b> ${channel.value}\n` +
+        `📝 <b>Ghi chú:</b> ${note.value.trim() || '—'}\n\n` +
+        `⏰ <i>${now}</i>`;
+
+      // Send to Telegram
+      try {
+        if (TELEGRAM_BOT_TOKEN !== 'YOUR_BOT_TOKEN_HERE') {
+          await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: msg, parse_mode: 'HTML' })
+          });
+        }
+      } catch (e) { /* Fail silently — vẫn hiện success cho khách */ }
+
+      // Show success
+      document.getElementById('contactFormBody').style.display = 'none';
+      const success = document.getElementById('formSuccess');
+      success.style.display = 'flex';
     }
-    document.getElementById('phoneInput').addEventListener('keydown', e => {
-      if (e.key === 'Enter') handleBook();
-    });
   </script>
 </body>
 
