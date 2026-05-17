@@ -1017,6 +1017,182 @@
       color: rgba(255, 255, 255, 0.85);
     }
 
+    /* ── GALLERY ── */
+    .gallery {
+      background: var(--white);
+      padding: 100px 64px;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .gallery-filter {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .gf-btn {
+      padding: 10px 24px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s;
+      border-radius: 40px;
+    }
+
+    .gf-btn:hover,
+    .gf-btn.active {
+      background: var(--rose);
+      border-color: var(--rose);
+      color: #fff;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid .g-wide {
+      grid-column: span 2;
+    }
+
+    .g-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--nude);
+      aspect-ratio: 4/3;
+    }
+
+    .g-card.g-tall {
+      aspect-ratio: 3/4;
+    }
+
+    .g-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .g-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .g-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--rose-pale), var(--nude));
+      transition: transform 0.5s ease;
+    }
+
+    .g-card:hover .g-placeholder {
+      transform: scale(1.06);
+    }
+
+    .g-placeholder .g-ph-icon {
+      font-size: 2rem;
+      opacity: 0.5;
+    }
+
+    .g-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(61, 43, 40, 0.72) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.35s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .g-card:hover .g-overlay {
+      opacity: 1;
+    }
+
+    .g-overlay-text {
+      color: #fff;
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .g-overlay-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose-soft);
+      margin-bottom: 4px;
+    }
+
+    .g-overlay-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    /* lightbox */
+    .g-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 10, 10, 0.92);
+      z-index: 99999;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+
+    .g-lightbox.open {
+      display: flex;
+    }
+
+    .g-lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border: 1px solid rgba(245, 216, 220, 0.2);
+    }
+
+    .g-lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      font-size: 2rem;
+      color: rgba(245, 216, 220, 0.7);
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+
+    .g-lightbox-close:hover {
+      color: #fff;
+    }
+
     /* ── CONTACT SECTION ── */
     .contact-section {
       background: var(--cream);
@@ -1604,6 +1780,18 @@
         grid-template-columns: 1fr;
       }
 
+      .gallery {
+        padding: 72px 24px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid .g-wide {
+        grid-column: span 2;
+      }
+
       .cta {
         padding: 80px 24px;
       }
@@ -1667,7 +1855,7 @@
     <ul class="nav-links">
       <li><a href="#about">Về Chúng Tôi</a></li>
       <li><a href="#services">Dịch Vụ</a></li>
-      <li><a href="#process">Quy Trình</a></li>
+      <!-- <li><a href="#gallery">Hình Ảnh</a></li> -->
       <li><a href="#reviews">Cảm Nhận</a></li>
       <li><a href="#contact" class="nav-cta">Đặt Lịch</a></li>
     </ul>
@@ -1711,9 +1899,9 @@
         </div>
       </div>
       <div class="hero-floats">
-        <div class="float-tag a"><strong>Phun Xăm NT</strong>Chân mày · Môi · Mí</div>
-        <div class="float-tag b"><strong>Filler & Botox</strong>Chính hãng · An toàn</div>
-        <div class="float-tag c"><strong>Bác Sĩ CK</strong>Chứng chỉ quốc tế</div>
+        <div class="float-tag a"><strong>Phun Xăm Thẩm Mỹ</strong>Mày · Môi · Mí</div>
+        <div class="float-tag b"><strong>Filler & Botox & Meso</strong>Chính hãng · An toàn</div>
+        <div class="float-tag c"><strong>Bác Sĩ CK</strong></div>
       </div>
     </div>
   </div>
@@ -1788,11 +1976,11 @@
           <div class="svc-desc">Nghệ thuật phun xăm bán vĩnh viễn với kỹ thuật điêu luyện, tạo đường nét tự nhiên, hài
             hòa với từng khuôn mặt. Màu sắc bền đẹp, không lem, không cứng.</div>
           <div class="svc-tags">
-            <span class="svc-tag">Chân Mày</span>
+            <span class="svc-tag">Chân Mày Ombre</span>
             <span class="svc-tag">Phun Môi</span>
             <span class="svc-tag">Mí Mắt</span>
-            <span class="svc-tag">Tán Bột</span>
-            <span class="svc-tag">Ombre</span>
+            <span class="svc-tag">Mày Sợi</span>
+            <span class="svc-tag">Điêu Khắc Đường Chân Tóc</span>
           </div>
         </div>
         <div class="svc-card reveal">
@@ -1802,11 +1990,14 @@
           <div class="svc-desc">Làm trẻ hóa, tạo hình và xóa nhăn bằng các sản phẩm cao cấp có nguồn gốc quốc tế, được
             Bộ Y tế Việt Nam cấp phép. Hiệu quả tức thì, không cần nghỉ dưỡng.</div>
           <div class="svc-tags">
-            <span class="svc-tag">Nâng Mũi</span>
-            <span class="svc-tag">Đầy Môi</span>
+            <span class="svc-tag">Tạo hình Mũi</span>
+            <span class="svc-tag">Tạo hình Môi</span>
             <span class="svc-tag">Má Baby</span>
             <span class="svc-tag">Xóa Nhăn</span>
-            <span class="svc-tag">Thon Hàm</span>
+            <span class="svc-tag">Gọn Hàm</span>
+            <span class="svc-tag">Thon Gọn Bắp Tay</span>
+            <span class="svc-tag">Tiêm Giảm Béo</span>
+            <span class="svc-tag">Tiêm Trẻ Hóa Da</span>
           </div>
         </div>
       </div>
@@ -1820,12 +2011,12 @@
             <ul class="detail-list">
               <li>
                 <span class="li-icon">✿</span>
-                <div><span class="li-title">Phun chân mày Ombre / Tán bột</span>Tạo hiệu ứng màu chuyển tự nhiên, hợp
+                <div><span class="li-title">Tạo sợi lông mày</span>Tạo hiệu ứng màu chuyển tự nhiên, hợp
                   với mọi kiểu mặt, giữ màu 2–3 năm.</div>
               </li>
               <li>
                 <span class="li-icon">✿</span>
-                <div><span class="li-title">Phun môi collagen</span>Căng mọng, tươi tắn và đều màu — không cần son mỗi
+                <div><span class="li-title">Phun môi xí muội</span>Căng mọng, tươi tắn và đều màu — không cần son mỗi
                   ngày.</div>
               </li>
               <li>
@@ -1841,17 +2032,22 @@
             <ul class="detail-list">
               <li>
                 <span class="li-icon">✿</span>
-                <div><span class="li-title">Juvederm / Restylane / Revolax</span>Filler chính hãng, mã code minh bạch,
+                <div><span class="li-title">Juvederm / Restylane / Revolax / Elasty / Mizain / Neuramis ...
+                  </span>Filler
+                  chính hãng, mã code minh bạch,
                   được cấp phép bởi Bộ Y tế.</div>
               </li>
               <li>
                 <span class="li-icon">✿</span>
-                <div><span class="li-title">Botox Allergan / Dysport</span>Xóa nhăn hiệu quả sau 5–7 ngày, giữ kết quả
-                  4–6 tháng.</div>
+                <div><span class="li-title">Botox Botulax / Wondertox / Redtox / Kaimax / Nabota ...</span>Xóa nhăn
+                  hiệu quả sau 5–7 ngày, giữ
+                  kết quả
+                  12–18 tháng.</div>
               </li>
               <li>
                 <span class="li-icon">✿</span>
-                <div><span class="li-title">Thon gọn hàm / bắp chân</span>Tái định hình khuôn mặt và vóc dáng không cần
+                <div><span class="li-title">Thon Gọn Hàm / Bắp Tay / Bắp Chân</span>Tái định hình khuôn mặt và vóc dáng
+                  không cần
                   phẫu thuật.</div>
               </li>
             </ul>
@@ -1860,6 +2056,12 @@
       </div>
     </div>
   </section>
+
+  <!-- Lightbox -->
+  <div class="g-lightbox" id="gLightbox" onclick="closeLightbox(event)">
+    <button class="g-lightbox-close" onclick="document.getElementById('gLightbox').classList.remove('open')">✕</button>
+    <img id="gLightboxImg" src="" alt="">
+  </div>
 
   <!-- ── PROCESS ── -->
   <section class="process sec-pad" id="process">
@@ -1875,7 +2077,7 @@
           <div class="step-n">01</div>
           <div class="step-body">
             <div class="step-title">Tư Vấn Miễn Phí</div>
-            <div class="step-desc">Bác sĩ lắng nghe mong muốn, đánh giá tình trạng da và tư vấn phương án phù hợp nhất
+            <div class="step-desc">Bác sĩ lắng nghe mong muốn, đánh giá tình trạng và tư vấn phương án phù hợp nhất
               với từng cá nhân.</div>
           </div>
         </div>
@@ -1924,7 +2126,7 @@
             <div class="testi-ava">L</div>
             <div>
               <div class="testi-name">Linh Phạm</div>
-              <div class="testi-role">Giáo viên · Hà Nội</div>
+              <div class="testi-role">Hai Bà Trưng - Hà Nội</div>
             </div>
           </div>
         </div>
@@ -1937,7 +2139,7 @@
             <div class="testi-ava">T</div>
             <div>
               <div class="testi-name">Thu Hương</div>
-              <div class="testi-role">Marketing Manager</div>
+              <div class="testi-role">Cầu Giấy - Hà Nội</div>
             </div>
           </div>
         </div>
@@ -1950,7 +2152,7 @@
             <div class="testi-ava">M</div>
             <div>
               <div class="testi-name">Minh Châu</div>
-              <div class="testi-role">Doanh nhân</div>
+              <div class="testi-role">Dương Đình Nghệ - Hà Nội</div>
             </div>
           </div>
         </div>
@@ -1985,8 +2187,8 @@
           </div>
           <div class="contact-detail-item">
             <div class="cdi-icon">📞</div>
-            <div><a href="tel:0385129229">038 512 9229</a><br><span style="font-size:0.78rem;color:var(--muted);">Hỗ trợ
-                9:00 – 19:00 · Mỗi ngày</span></div>
+            <div><a href="tel:0385129229">0385 129 229</a><br><span style="font-size:0.78rem;color:var(--muted);">Hỗ trợ
+                8:00 – 20:30 · Mỗi ngày</span></div>
           </div>
           <div class="contact-detail-item">
             <div class="cdi-icon">💬</div>
@@ -2078,7 +2280,7 @@
   <div class="float-widgets">
     <a href="tel:0385129229" class="float-btn phone" title="Gọi ngay">
       <div class="fb-icon">📞</div>
-      <span class="float-label">038 512 9229</span>
+      <span class="float-label">0385 129 229</span>
     </a>
     <a href="https://zalo.me/0385129229" target="_blank" class="float-btn zalo" title="Chat Zalo">
       <div class="float-icon-wrap">
@@ -2113,8 +2315,8 @@
         <ul>
           <li><a href="https://maps.app.goo.gl/wB81gsKSZX4kVaub7">📍 62 Nguyễn Khang - Yên Hoà - Cầu Giấy - Hà Nội,
               Hanoi, Vietnam</a></li>
-          <li><a href="#">🕐 9:00 – 19:00 · Mỗi ngày</a></li>
-          <li><a href="tel:0385129229">📞 038 512 9229</a></li>
+          <li><a href="#">🕐 8:00 – 20:30 · Mỗi ngày</a></li>
+          <li><a href="tel:0385129229">📞 0385 129 229</a></li>
         </ul>
         <div class="social-links">
           <a href="https://zalo.me/0385129229" title="Zalo"><img
@@ -2162,6 +2364,46 @@
       });
     }, { threshold: 0.08 });
     reveals.forEach(el => io.observe(el));
+
+    // ── Gallery Filter ──
+    document.querySelectorAll('.gf-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.g-card').forEach(card => {
+          const show = filter === 'all' || card.dataset.cat === filter;
+          card.style.display = show ? '' : 'none';
+          // Reset wide span when filtering
+          if (filter !== 'all') {
+            card.style.gridColumn = show && card.classList.contains('g-wide') ? 'span 2' : '';
+          } else {
+            card.style.gridColumn = card.classList.contains('g-wide') ? 'span 2' : '';
+          }
+        });
+      });
+    });
+
+    // ── Lightbox ──
+    function openLightbox(card) {
+      const img = card.querySelector('img');
+      const lb = document.getElementById('gLightbox');
+      const lbImg = document.getElementById('gLightboxImg');
+      if (img) {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lb.classList.add('open');
+      }
+      // If placeholder only (no real img), skip lightbox
+    }
+    function closeLightbox(e) {
+      if (e.target === document.getElementById('gLightbox')) {
+        document.getElementById('gLightbox').classList.remove('open');
+      }
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.getElementById('gLightbox').classList.remove('open');
+    });
 
     // ── Contact Form Submit ──
     async function submitContactForm() {
